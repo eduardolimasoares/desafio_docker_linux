@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+    api-postgres:
+        image: postgres
+        container_name: api-postgres
+        environment:
+            - TZ=America/Sao_Paulo   
+            - POSTGRES_USER=apiserver
+            - POSTGRES_PASSWORD=apiserver
+            - POSTGRES_DB=apiserver
+        ports:
+            - 5432:5432
+    mongo:
+        image: mongo
+        container_name: mongo
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: vamongodb
+            MONGO_INITDB_ROOT_PASSWORD: vamongodb2022
+            MONGODB_DATABASE: vadb
+        ports:
+            - 27017:27017
+        restart: unless-stopped
